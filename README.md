@@ -5,7 +5,7 @@
 
 ### `npm start`
 Запуск приложения<br>
-Откроется в [http://localhost:3000](http://localhost:3000) вокне браузера
+Откроется в [http://localhost:3000](http://localhost:3000) в окне браузера
 
 ### `npm run build`
 Сборка проекта
