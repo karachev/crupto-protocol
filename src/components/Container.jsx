@@ -87,7 +87,12 @@ export default class ContainerComponent extends React.PureComponent {
     return (
       <Col xs ={12} style={{marginTop: '15px'}}>
         <Row>
-
+          <Col xs ={5}>
+            <LogComponent
+              logInfo = {this.state.logInfo}
+            />
+          </Col>
+  
           <Col xs ={7}>
             <ChatComponent
               errorUser = {this.state.errorUser}
@@ -98,12 +103,6 @@ export default class ContainerComponent extends React.PureComponent {
               activeUsername = {this.state.activeUsername}
               messages = {this.state.messages}
               addMessage = {this.addMessage}
-            />
-          </Col>
-
-          <Col xs ={5}>
-            <LogComponent
-              logInfo = {this.state.logInfo}
             />
           </Col>
 

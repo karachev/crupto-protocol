@@ -3,7 +3,7 @@
 }
 
 .message-container {
-  height: calc(400px - 2.5rem);
+  height: calc(400px - 10.5rem);
   overflow: auto;
 }
 

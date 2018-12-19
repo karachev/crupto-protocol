@@ -33,7 +33,7 @@ class Manager extends React.PureComponent {
               
             </FormGroup>
 
-            <Button block color="danger" onClick={this.props.addUser}>
+            <Button block color="primary" onClick={this.props.addUser}>
               Добавить участника
             </Button>
           </Col>
@@ -104,22 +104,8 @@ class Chat extends React.PureComponent {
     return (
       <Card body outline color="info" >
         <Row>
-
-          <Col xs ={5}>
-           {this.props.activeUsername.id && (
-              <FormGroup>
-
-                <Label for="messageText" className ='text-center'>{`Участник: ${this.props.activeUsername.id}`}</Label>
-                <Input style={{minHeight: '150px'}} type="textarea" name="messageText" id="messageText" ref = {this.getMessage} />
-                <Button block onClick={this.addMessage}>
-                  Отправить сообщение
-                </Button>
-
-              </FormGroup>
-            )}
-          </Col>
-
-          <Col xs={7} className="message-container" >
+  
+          <Col xs={12} className="message-container" >
             {messages.map((message,i)=> {
               const style = {
                 transition: 'all 0.2s ease-in'
@@ -130,13 +116,27 @@ class Chat extends React.PureComponent {
                 style.marginLeft = '80px';
               }
               return (
-                <Alert key ={message+i} style={style} color={(message.user.id === this.props.activeUsername.id) ? "success" : "danger"}>
+                <Alert key ={message+i} style={style} color={(message.user.id === this.props.activeUsername.id) ? "success" : "primary"}>
                   <strong>{`${message.user.id} пишет:`}</strong>
                   <br/>
                   {this.decryptMessage(message) || 'Участник присоеденился после отправки сообщения!'}
                 </Alert>
               )
             })}
+          </Col>
+          
+          <Col xs ={12}>
+           {this.props.activeUsername.id && (
+              <FormGroup>
+
+                <Label for="messageText" className ='text-center'>{`Участник: ${this.props.activeUsername.id}`}</Label>
+                <Input style={{minHeight: '150px'}} type="textarea" name="messageText" id="messageText" ref = {this.getMessage} />
+                <Button className='btn-info' block onClick={this.addMessage}>
+                  Отправить сообщение
+                </Button>
+
+              </FormGroup>
+            )}
           </Col>
 
         </Row>
